@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "./style.css";
-import Search from "./search";
-import Header from "./header";
-import employees from "../employees.json"
+import Search from "../Search";
+import Header from "../Header";
+import employees from "../../employees.json"
 
-class employeeTable extends Component {
+class EmployeeTable extends Component {
     state = {
       employees: employees,
       search: "",
-      sort: ""
+      sort: "ascending"
     };
 
 handleInputChange = event => {
@@ -18,8 +18,23 @@ handleInputChange = event => {
   });
 };
 
+compare(a, b) {
+  if (a.name > b.name) return 1;
+  if (b.name > a.name) return -1;
+  return 0;
+};
+  
+sortOrder = event => {
+  const currentSort = this.state.sort ? "ascending" : "descending";
+  this.setState ({ sort: currentSort });
+  const sortedEmployee = this.state.employees.sort(this.compare);
+  this.setState ({ employees: sortedEmployee })
+};
+
 render () {
-  return
+  return (
+    <div>Hello!</div>
+  )
 }
 
 
@@ -27,4 +42,4 @@ render () {
 
 };
 
-export default employeeTable;
+export default EmployeeTable;

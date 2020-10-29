@@ -1,10 +1,10 @@
 import React from "react";
-import employeeTable from "./components/employeeTable";
+import EmployeeTable from "./components/EmployeeTable";
 
 
 function App() {
   return (
-    <employeeTable />
+    <EmployeeTable />
   );
 }
 
