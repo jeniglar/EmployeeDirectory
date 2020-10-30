@@ -1,4 +1,9 @@
 form {
- text-align: center;
- padding: 40px
+    text-align: center;
+    padding: 40px
+}
+
+.btn {
+    color: rgb(1, 1, 102);
+    background-color: rgb(91, 181, 237)
 }
