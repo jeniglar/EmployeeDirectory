@@ -33,7 +33,7 @@ sortOrder = event => {
 
 render () {
   return (
-    <div>Hello!</div>
+    <Header/>
   )
 }
 
