@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import "./style.css";
 import Search from "../Search";
 import Header from "../Header";
+import Table from "../Table";
 import employees from "../../employees.json"
+
+
+
 
 class EmployeeTable extends Component {
   state = {
@@ -45,11 +49,17 @@ render() {
       <Header />
       <Search />
       <tr className="container">
-        <th >Image</th>
-        <th className="btn" onClick={() => { this.sortOrder() }}>Name</th>
-        <th>Phone Number</th>
-        <th>Email</th>
+        <th>IMAGE</th>
+        <th className="btn" onClick={() => { this.sortOrder() }}>NAME</th>
+        <th>PHONE NUMBER</th>
+        <th>EMAIL</th>
       </tr>
+
+      
+
+
+
+
     </>
   )
 }
