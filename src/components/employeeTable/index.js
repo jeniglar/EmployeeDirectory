@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import "./style.css";
+import employees from "../../employees.json";
 import Search from "../Search";
 import Header from "../Header";
 import Table from "../Table";
-import employees from "../../employees.json"
-
-
 
 
 class EmployeeTable extends Component {
@@ -42,30 +40,52 @@ class EmployeeTable extends Component {
     this.setState({ employees: sortedEmployee })
   };
 
-
-render() {
-  return (
-    <>
+  render() {
+    const filterSearch = employees.filter(employee => employee.name.includes(this.state.search))
+    return (
+      <>
       <Header />
-      <Search />
-      <tr className="container">
-        <th>IMAGE</th>
-        <th className="btn" onClick={() => { this.sortOrder() }}>NAME</th>
-        <th>PHONE NUMBER</th>
-        <th>EMAIL</th>
-      </tr>
-
-      
-
-
-
-
+      <form>
+      <div className="form-group">
+        <input
+          onChange={this.handleInputChange}
+          value={this.value}
+          name="search"
+          type="text"
+          className="form-control"
+          placeholder="Search Employee Name"
+          id="search"
+        />
+        <button onClick={this.handleFormSubmit} className="btn btn-primary">
+          Search
+        </button>
+      </div>
+    </form>
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col" onClick={() => { this.sortOrder() }}>Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filterSearch.map(person =>
+            <Table
+              id={person.id}
+              key={person.id}
+              name={person.name}
+              image={person.image}
+              email={person.email}
+              phone={person.phone}
+            />
+          )}
+        </tbody>
+      </table>
     </>
-  )
-}
-
-
-
+    );
+};
 
 };
 

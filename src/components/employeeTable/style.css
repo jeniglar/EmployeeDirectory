@@ -1,0 +1,22 @@
+table {
+    margin: auto;
+    width: 70%;
+    table-layout: fixed; 
+    border-collapse: collapse
+}
+
+td {
+    text-align: center;
+    border: 1px black;
+    padding: 5px
+}
+
+th {
+    text-align: center;
+    border: 1px black;
+    padding: 5px
+}
+
+thead {
+    text-align: center
+}
